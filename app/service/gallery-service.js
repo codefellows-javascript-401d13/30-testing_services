@@ -142,4 +142,4 @@ function galleryService($q, $log, $http, authService) {
   }
 
   return service;
-}
+};
