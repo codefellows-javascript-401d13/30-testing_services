@@ -1,25 +1,19 @@
 <section class="landing">
   <div class="join-container"
-    ng-if="landingCtrl.showSignup">
+  ng-if="landingCtrl.showSignup">
     <div class="join-inner">
       <signup></signup>
-      <p>already a member</p>
+      <p>already a member?</p>
       <a href="/#/join#login"
-        ng-click"landingCtrl.showSignup=false">
-        YOU ALREADY PART OF THIS DOPE COMMUNITY BRUH??
-      </a>
+      ng-click="landingCtrl.showSignup=false">YOU ALREADY PART OF OUR DOPE COMMUNITY BRUH?</a>
     </div>
   </div>
-
   <div class="join-container"
-    ng-if="!landingCtrl.showSignup">
+  ng-if="!landingCtrl.showSignup">
     <div class="join-inner">
       <login></login>
       <p>want to sign up?</p>
-      <a href="/#/join#signup"
-        ng-click="landingCtrl.showSignup=true">
-        COME ON AND JOIN THE DOPE COMMUNITY BRUH
-      </a>
+      <a href="/#/join#signup" ng-click="landingCtrl.showSignup=true">COME ON AND JOIN OUR DOPE COMMUNITY BRUH</a>
     </div>
   </div>
 </section>

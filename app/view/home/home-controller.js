@@ -10,22 +10,19 @@ function HomeController($log, $rootScope, galleryService) {
   this.galleries = [];
 
   this.fetchGalleries = function() {
+    $log.debug('HomeController.fetchGalleries');
+
     galleryService.fetchGalleries()
-    .then( galleries => {
-      this.galleries = galleries;
-      this.currentGallery = galleries[0];
-    })
+    .then(galleries => this.galleries = galleries);
   };
 
   this.galleryDeleteDone = function(gallery) {
-    if (this.currentGallery._id === gallery._id) {
-      this.currentGallery = null;
-    }
+    $log.debug('HomeController.galleryDeleteDone', gallery);
+
+    if (this.currentGallery._id === gallery._id) this.currentGallery = null;
   };
 
   this.fetchGalleries();
+  $rootScope.$on('$locationChangeSuccess', () => this.fetchGalleries());
 
-  $rootScope.$on('$locationChangeSuccess', () => {
-    this.fetchGalleries();
-  });
-};
+}
