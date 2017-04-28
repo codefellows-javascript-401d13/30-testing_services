@@ -1,5 +1,7 @@
 'use strict';
 
+require('./_create-gallery.scss');
+
 module.exports = {
   template: require('./create-gallery.html'),
   controller: ['$log', 'galleryService', CreateGalleryController],
@@ -12,11 +14,11 @@ function CreateGalleryController($log, galleryService) {
   this.gallery = {};
 
   this.createGallery = function() {
-    $log.debug('CreateGalleryController.createGallery');
     galleryService.createGallery(this.gallery)
     .then( () => {
       this.gallery.name = null;
       this.gallery.desc = null;
-    })
-  }
-}
+    });
+  };
+};
+

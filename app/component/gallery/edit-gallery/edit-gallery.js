@@ -1,6 +1,6 @@
 'use strict';
 
-require('./edit-gallery.scss');
+require('./_edit-gallery.scss');
 
 module.exports = {
   template: require('./edit-gallery.html'),
@@ -9,13 +9,12 @@ module.exports = {
   bindings: {
     gallery: '<'
   }
-}
+};
 
 function EditGalleryController($log, galleryService) {
   $log.debug('EditGalleryController');
 
   this.updateGallery = function() {
-    $log.debug('editGalleryCtrl.updateGallery');
-    galleryService.updateGallery(this.galley._id, this.gallery);
-  }
-}
+    galleryService.updateGallery(this.gallery._id, this.gallery);
+  };
+};

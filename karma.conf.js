@@ -1,12 +1,11 @@
+// Karma configuration
+// Generated on Tue Apr 04 2017 10:16:51 GMT-0700 (PDT)
 const webpack = require('./webpack.config.js');
 delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
-
-    // to wire to webpack
     webpack,
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -72,5 +71,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  });
-};
+  })
+}

@@ -3,10 +3,10 @@
 require('./_gallery-item.scss');
 
 module.exports = {
-  template: require('./gallery-item.scss');
-  controller: ['$log', 'galleryService', GalleryItemController];
+  template: require('./gallery-item.html'),
+  controller: ['$log', 'galleryService', GalleryItemController],
   controllerAs: 'galleryItemCtrl',
-  bindgins: {
+  bindings: {
     gallery: '<'
   }
 };
@@ -14,10 +14,9 @@ module.exports = {
 function GalleryItemController($log, galleryService) {
   $log.debug('GalleryItemController');
 
-  this.showEditGallery  = false;
+  this.showEditGallery = false;
 
   this.deleteGallery = function() {
-    $log.debug('GalleryItemController.deleteGallery');
     galleryService.deleteGallery(this.gallery._id);
-  }
-}
+  };
+};

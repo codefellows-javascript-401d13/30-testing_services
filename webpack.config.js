@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const production = process.env.NODE_ENV = 'production';
+const production = process.env.NODE_ENV === 'production';
 
 dotenv.load();
 
@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new HTMLPlugin({
-      template: `${__dirname}/app/entry.js`
+      template: `${__dirname}/app/index.html`
     }),
     new ExtractTextPlugin('bundle.css'),
     new webpack.DefinePlugin({
@@ -31,7 +31,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: 'babel-loader'
+        loader: 'babel-loader'
       },
       {
         test: /\.html$/,
@@ -43,4 +43,4 @@ module.exports = {
       }
     ]
   }
-}
+};
