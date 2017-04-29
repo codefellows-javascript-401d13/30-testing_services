@@ -24,14 +24,14 @@ describe('Edit Gallery Component', function() {
   });
   describe('editGalleryCtrl.updateGallery()', () => {
     it('should make a valid PUT request', () => {
-      let url = 'http://localhost:3000/api/gallery/4242';
+      let url = 'http://localhost:3000/api/gallery/7';
       let headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         Authorization: 'Bearer test token'
       };
       let tempGallery = {
-        _id: '4242',
+        _id: '7',
         name: 'updated name',
         desc: 'updated desc'
       };
