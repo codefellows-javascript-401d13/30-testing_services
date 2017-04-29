@@ -41,7 +41,7 @@ describe('Gallery Service', function() {
         Accept: 'application/json',
         Authorization: 'Bearer test token'
       };
-      this.$httpBackend.expectGET('http://localhost:3003/api/gallery', headers)
+      this.$httpBackend.expectGET('http://localhost:3000/api/gallery', headers)
       .respond(200, {
         _id: '1',
         username: 'exampleuser',
@@ -65,7 +65,7 @@ describe('Gallery Service', function() {
           Authorization: 'Bearer test token'
         }
       };
-      this.$httpBackend.expectPUT('http://localhost:3003/api/gallery/', galleryData, config)
+      this.$httpBackend.expectPUT('http://localhost:3000/api/gallery/', galleryData, config)
       .respond(200, {
         _id: '1',
         username: 'exampleuser',
@@ -78,8 +78,9 @@ describe('Gallery Service', function() {
   });
   describe('galleryService.deleteGallery', () => {
     it('should delete a gallery', () => {
-      this.$httpBackend.expectDELETE('http://localhost:3003/api/gallery/1')
+      this.$httpBackend.expectDELETE('http://localhost:3000/api/gallery/1')
       .respond(204);
+      this.galleryService.deleteGallery('1');
       this.$rootScope.$apply();
     });
   });
